@@ -6,7 +6,8 @@ on:
     branches:
       - main
     types:
-      - closed
+      - opened
+      - synchronize
 
 jobs:
   ci:
