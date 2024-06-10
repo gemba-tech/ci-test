@@ -2,13 +2,13 @@ name: GitHub Action to run continuous integration.
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
 on:
-  push:
-    branches:
-      - main
+  pull_request_review:
+    types:
+      - submitted
 
 jobs:
   ci:
-    if: ${{ ! contains(github.event.head_commit.message, '#skip-ci') }}
+    if: ${{ ! contains(github.event.head_commit.message, '#skip-ci') && github.event.review.state == 'APPROVED'}}
     runs-on: ubuntu-latest    
     steps:
       - run: exit 1
