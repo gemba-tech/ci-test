@@ -6,7 +6,7 @@ on:
     branches:
       - main
     types:
-      - review_requested
+      - closed
 
 jobs:
   ci:
